@@ -13,8 +13,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int RightDiceIndex = 1;
   void roll() {
     setState(() {
-      LeftDiceIndex = Random().nextInt(6)+1;
-      RightDiceIndex = Random().nextInt(6)+1;
+      LeftDiceIndex = Random().nextInt(6) + 1;
+      RightDiceIndex = Random().nextInt(6) + 1;
     });
   }
 
@@ -31,16 +31,24 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               children: [
                 Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Image(
-                      image: AssetImage('images/dice-png-$LeftDiceIndex.png')),
+                    child: GestureDetector(
+                  onDoubleTap: roll,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Image(
+                        image:
+                            AssetImage('images/dice-png-$LeftDiceIndex.png')),
+                  ),
                 )),
                 Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Image(
-                      image: AssetImage('images/dice-png-$RightDiceIndex.png')),
+                    child: GestureDetector(
+                  onDoubleTap: roll,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Image(
+                        image:
+                            AssetImage('images/dice-png-$RightDiceIndex.png')),
+                  ),
                 ))
               ],
             ),
